@@ -32,7 +32,7 @@ const CardContainer = () => {
       (top) => top?.card?.card?.id === "restaurant_grid_listing" || 
                top?.card?.card?.id === "top_brands_for_you"
     );
-    // console.log("latest list",list);
+    console.log("latest list",list);
     setcardData2(list[0].card.card.gridElements.infoWithStyle.restaurants);
     setcopyList(list[0].card.card.gridElements.infoWithStyle.restaurants);
   };
