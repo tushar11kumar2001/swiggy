@@ -85,6 +85,7 @@ const CardContainer = () => {
           <input
             type="text"
             id="user"
+            placeholder="username"
             className="p-1 border border-black rounded-lg"
             value={loggedInUser}
             onChange={(e) => {
