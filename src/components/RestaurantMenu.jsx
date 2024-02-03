@@ -7,25 +7,28 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { restId } = useParams();
   const restInfo = useRestaurantMenu(restId);
-  console.log("restinfo",restInfo);
+  // console.log("restinfo",restInfo);
   const [showIndex, setShowIndex] = useState(null);
   // console.log("param",restId);
   const dummy = "dummy data";
   
-
+const restaurantInfo = restInfo?.data?.cards.filter(c=>c?.card?.card?.info);
+// console.log("restaurantinfo",restaurantInfo);
   if (restInfo === null) return <Shimmar />;
   const { name, cuisines, avgRatingString } =
-    restInfo?.data?.cards[2]?.card?.card?.info;
+    restaurantInfo[0].card?.card?.info;
 
+  const menuDetails = restInfo?.data?.cards.filter(c=>c?.groupedCard);
+  // console.log("menudetails" , menuDetails);
   const categories =
-    restInfo?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+   menuDetails[0]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory" ||
         c.card?.card?.["@type"] ===
           "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log("categories",categories);
+  // console.log("categories",categories);
 
   return (
     <div className="w-4/5 bg-slate-50 mx-auto  ">
