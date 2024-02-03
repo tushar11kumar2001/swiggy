@@ -76,7 +76,7 @@ const CardContainer = () => {
               // console.log("after filtersearch = ", cardData2);
             }}
           >
-            {/* <i className="fa-solid fa-magnifying-glass"></i> */} search
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
 
