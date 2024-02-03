@@ -1,4 +1,4 @@
-import { sum } from "../utils/sum";
+import { sum } from "../testCases/sum";
 
 test("check sum" , ()=>{
     const res = sum(2,3);
