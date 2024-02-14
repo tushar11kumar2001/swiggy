@@ -7,12 +7,20 @@ const useRestaurantMenu = (restId) => {
   }, []);
 
   const fetchURL = async () => {
-    const data = await fetch(MenuAPI + restId);
-    const json = await data.json();
-    // console.log("menu",json);
-    setRestInfo(json);
-  };
+    try{
+      const data = await fetch(MenuAPI + restId);
+      if(!data.ok) throw new Error("failed to fetch");
+      const json = await data.json();
+      // console.log("menu",json);
+      setRestInfo(json);
+    }
+    catch(e){
+     console.log(e.message);
+    }
+  }
+
   return restInfo;
+ 
 };
 
 export default useRestaurantMenu;

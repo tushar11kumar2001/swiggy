@@ -1,9 +1,9 @@
 
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { set } from "../redux/UserSlice";
+
 const Header = ()=>{
      const onlineStatus = useOnlineStatus();
 

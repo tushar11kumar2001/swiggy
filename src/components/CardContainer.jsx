@@ -1,5 +1,5 @@
 import Card, { withPromotedLabel } from "./Card";
-// import useRestaurantList from "../utils/useRestaurantList";
+import restaurantList from "../utils/restaurantList";
 import { useState, useEffect, useContext } from "react";
 import Shimmar from "./Fackcard";
 import { Link } from "react-router-dom";
@@ -8,7 +8,7 @@ import UserContext from "../utils/userContext";
 
 const CardContainer = () => {
   // console.log("List " ,   useRestaurantList());
-
+  
   const [cardData2, setcardData2] = useState([]);
   const [searchText, setsearchText] = useState("");
   const [btnName, setbtnName] = useState("LOGIN");
@@ -17,24 +17,13 @@ const CardContainer = () => {
   const { loggedInUser, setUserName } = useContext(UserContext);
   // console.log("logindata" , loggedInUser);
 
-  useEffect(() => {
-    url();
-  }, []);
-  const url = async () => {
-    const api = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.705882&lng=77.2785876&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-    );
-    // console.log("api",api); 
-    const json = await api.json();
-    // console.log("json = ", json);
-    // console.log("json.data.cards",json.data.cards)
-    const list = json?.data?.cards.filter(
-      (top) => top?.card?.card?.id === "restaurant_grid_listing" || 
-               top?.card?.card?.id === "top_brands_for_you"
-    );
-    // console.log("latest list",list);
-    setcardData2(list[0].card.card.gridElements.infoWithStyle.restaurants);
-    setcopyList(list[0].card.card.gridElements.infoWithStyle.restaurants);
+  useEffect(()=>{restaurantData()}, []);
+  const restaurantData = async () => {
+       const list = await restaurantList();
+      //  console.log("list",list);
+       if(list === "") return;
+       setcardData2(list[0].card.card.gridElements.infoWithStyle.restaurants);
+       setcopyList(list[0].card.card.gridElements.infoWithStyle.restaurants);
   };
 
   //conditional rendering

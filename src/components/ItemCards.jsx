@@ -1,6 +1,7 @@
 import { IMG_URL } from "../utils/constant";
 import {useDispatch} from "react-redux";
 import { add , addRestaurantName } from "../redux/cartSlice";
+
 const ItemCards = ({ itemsList, dummy }) => {
 //   console.log("dummy", dummy);
 const dispatch = useDispatch();
