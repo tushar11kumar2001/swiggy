@@ -7,13 +7,13 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { restId } = useParams();
   const restInfo = useRestaurantMenu(restId);
-  console.log("restinfo",restInfo);
+  // console.log("restinfo",restInfo);
   const [showIndex, setShowIndex] = useState(null);
   // console.log("param",restId);
   const dummy = "dummy data";
   
 const restaurantInfo = restInfo?.data?.cards.filter(c=>c?.card?.card?.info);
-console.log("restaurantinfo",restaurantInfo);
+// console.log("restaurantinfo",restaurantInfo);
   if (restInfo === null) return <Shimmar />;
   const { name, cuisines, avgRatingString } =
     restaurantInfo[0].card?.card?.info;

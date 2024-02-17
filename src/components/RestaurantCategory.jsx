@@ -30,7 +30,10 @@ const RestaurantCategory = ({ data, showItems , setShowIndex ,dummy}) => {
 
       {data?.["@type"] ===
       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ? (
-        showItems && <ItemCards itemsList={data?.itemCards} dummy = {dummy}/>
+        showItems && <div> {data?.itemCards?.map((item)=>{
+          return <ItemCards items={item} key={item?.card?.info?.id}/>
+        })}
+        </div>
       ) : (
         data?.categories.map((cat)=>{
            return <NestedCategory key={cat.title}nestedCategories={cat} />
