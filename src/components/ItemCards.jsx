@@ -1,14 +1,15 @@
 import { IMG_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
-import { add } from "../redux/cartSlice";
+import { add, removeItems } from "../redux/cartSlice";
 import { useState } from "react";
 
 const ItemCards = ({ items }) => {
-  const cartItems = useSelector(store=>store.cart.items);
+  const [flag,setFlag] = useState(false);
   const dispatch = useDispatch();
   const handleItems = (item) => {
-
-    if(cartItems[cartItems.length-1] !== item) dispatch(add(item));
+  setFlag(!flag);
+  if(flag) dispatch(removeItems(item));
+  else dispatch(add(item));
   };
 
   return (
@@ -45,7 +46,7 @@ const ItemCards = ({ items }) => {
             className="absolute left-2/4 bottom-0 translate-x-[-50%] px-5 py-1 border border-gray-500 rounded-lg text-green-500 text-center font-bold bg-white"
             onClick={() => handleItems(items)}
           >
-            ADD+
+            {flag?"Remove":"ADD+"}
           </button>
         </div>
       </div>
@@ -53,20 +54,6 @@ const ItemCards = ({ items }) => {
   );
 };
 
-export const Qitems = (ItemCards) => {
- 
-  return function Card(props){
-    console.log("props" , props);
-     const [count,setcount] = useState(1);
-    return (
-      <>
-        <h1>quantitytushar {count}</h1><button onClick={(e)=>{
-          console.log(e);
-          setcount(count+1)}}>+</button>
-        <ItemCards {...props} />
-      </>
-    );
-  };
-};
+
 
 export default ItemCards;

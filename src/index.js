@@ -25,7 +25,7 @@ import reportWebVitals from './reportWebVitals';
 //on demand loading
 const Grocery = lazy(()=>import("./components/Grocery")); //dynamic loading
 const About = lazy(()=>import("./components/About")); //dynamic loading
-const CartItems = lazy(()=>import('./components/CartItems'))
+const Cart = lazy(()=>import('./components/Cart'))
 
 
 const AppLayout = ()=>{
@@ -72,7 +72,7 @@ const appRouter = createBrowserRouter([
                         },
                         {
                                 path:"/cart",
-                                element: <Suspense fallback={<h1>loading</h1>}> <CartItems/></Suspense> 
+                                element: <Suspense fallback={<h1>loading</h1>}> <Cart/></Suspense> 
                         },
                         {
                                 path:"/restaurants/:restId",
