@@ -46,29 +46,29 @@ const appRouter = createBrowserRouter([
         {
                 path:"/",
                 element: <AppLayout />,
-                // children: [
-                //         {
-                //                 path:"/",
-                //                 element: <App />
-                //         },
-                //         {
-                //                 path:"/contact",
-                //                 element: <Contact></Contact>
-                //         },
-                //         {
-                //                 path:"/about",
-                //                 element: <Suspense fallback={<h1>loading</h1>}><About></About> </Suspense>
-                //         },
+                children: [
+                        {
+                                path:"/",
+                                element: <App />
+                        },
+                        {
+                                path:"/contact",
+                                element: <Contact></Contact>
+                        },
+                        {
+                                path:"/about",
+                                element: <Suspense fallback={<h1>loading</h1>}><About></About> </Suspense>
+                        },
                   
-                //         {
-                //                 path:"/cart",
-                //                 element: <Suspense fallback={<h1>loading</h1>}> <Cart/></Suspense> 
-                //         },
-                //         {
-                //                 path:"/restaurants/:restId",
-                //                 element: <RestaurantMenu />
-                //         }
-                // ],
+                        {
+                                path:"/cart",
+                                element: <Suspense fallback={<h1>loading</h1>}> <Cart/></Suspense> 
+                        },
+                        {
+                                path:"/restaurants/:restId",
+                                element: <RestaurantMenu />
+                        }
+                ],
                 errorElement: <Error/>
         },
 

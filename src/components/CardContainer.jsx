@@ -33,7 +33,7 @@ const CardContainer = () => {
   return cardData2.length === 0 ? (
     <Shimmar />
   ) : (
-    <div className="body">
+    <div className="body relative top-20">
       <div className="flex justify-between bg-[#e9c464] h-20 items-center ">
         <div className="flex ml-2.5 w-60 h-10 border border-black rounded-[20px] bg-white">
           <input
@@ -77,7 +77,7 @@ const CardContainer = () => {
         <div>
           <button
             type="button"
-            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+            className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
             onClick={() => {
               const filterlist = cardData2.filter(
                 (rest) => rest.info.avgRatingString > 4.0
@@ -90,7 +90,7 @@ const CardContainer = () => {
 
           <button
             type="button"
-            class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+            className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
             onClick={() => {
               btnName === "LOGIN" ? setbtnName("LOGOUT") : setbtnName("LOGIN");
             }}
@@ -103,7 +103,7 @@ const CardContainer = () => {
         </div>
       </div>
 
-      <div className="flex justify-between flex-wrap w-4/5  mx-auto bg-[rgb(245,245,220)] p-6  ">
+      <div className="flex gap-10 flex-wrap justify-center w-1/2  mx-auto bg-white p-6  border-2 border-black sm:w-4/5">
         {copyList.map((resturant) => (
           <Link
             to={"/restaurants/" + resturant.info.id}

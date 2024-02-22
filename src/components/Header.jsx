@@ -15,7 +15,8 @@ const Header = () => {
     setMove(true);
   }
   return (
-    <div className="flex h-20  justify-between  border-b-2 border-slate-300 items-center pl-32 pr-36 py-2 relative">
+    <div className="fixed w-screen bg-white shadow-2xl z-50">
+      <div className="flex h-20  justify-between   items-center pl-32 pr-36 py-2 relative">
       <img
         className="h-5/6 hover:scale-110 cursor-pointer absolute  left-3  sm:relative"
         src={Logo}
@@ -57,11 +58,25 @@ const Header = () => {
           </h3>
         </li>
       </ul>
-
+      
+      <div className="right-5 absolute sm:hidden flex">
+      <h3 className="hover:text-orange-600 relative text-gray-600 mr-14">
+            <Link to="/cart" className="absolute text-3xl">
+              <i className="fa-solid fa-cart-shopping"></i>
+            </Link>
+            {cartItems.length && (
+              <p className="absolute left-5 top-[-3px] bg-red-600 text-sm w-5 rounded-full text-center text-white">
+                {" "}
+                {cartItems.length}
+              </p>
+            )}
+          </h3>
       <i
-        className="fa-solid fa-bars sm:hidden text-3xl text-gray-600 right-5 absolute"
+        className="fa-solid fa-bars  text-3xl text-gray-600 "
         onClick={showsideBar}
-      ></i>
+      ></i> 
+      </div>
+  
 
     {move &&   <ul
         className={
@@ -93,21 +108,10 @@ const Header = () => {
             <Link to="/contact">contact us</Link>
           </h3>{" "}
         </li>
-        <li className="cursor-pointer mb-4">
-          <h3 className="hover:text-orange-600 relative">
-            <Link to="/cart" className="absolute text-3xl">
-              <i className="fa-solid fa-cart-shopping"></i>
-            </Link>
-            {cartItems.length && (
-              <p className="absolute left-5 top-[-3px] bg-red-600 text-sm w-5 rounded-full text-center text-white">
-                {" "}
-                {cartItems.length}
-              </p>
-            )}
-          </h3>
-        </li>
+      
       </ul>}
     </div>
+  </div>
   );
 };
 
