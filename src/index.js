@@ -2,29 +2,22 @@ import React,  { lazy , Suspense, useEffect } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-// import About from './components/About';
+
 import Contact from './components/Contact';
 import Error from './components/Error';
 import Header from './components/Header';
 import RestaurantMenu from './components/RestaurantMenu';
-// import Grocery from './components/Grocery';
+
 import {createBrowserRouter,Outlet,RouterProvider} from 'react-router-dom';
 import { useState } from 'react';
 import UserContext from './utils/userContext';
-// import User from './components/User';
+
 import { Provider } from 'react-redux';
 import appStore from './redux/appStore';
-// import CartItems from './components/CartItems';
 import reportWebVitals from './reportWebVitals';
 
-
-//chunking
-//dynamically bundling
-//code splitting
-//lazy loading
-//on demand loading
-const Grocery = lazy(()=>import("./components/Grocery")); //dynamic loading
-const About = lazy(()=>import("./components/About")); //dynamic loading
+const Grocery = lazy(()=>import("./components/Grocery"));
+const About = lazy(()=>import("./components/About")); 
 const Cart = lazy(()=>import('./components/Cart'))
 
 

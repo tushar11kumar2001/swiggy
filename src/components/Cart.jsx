@@ -1,10 +1,9 @@
-
 import { clearCart } from "../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import CartItems from "./CartItems";
 const Cart = () => {
- const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
@@ -13,12 +12,16 @@ const Cart = () => {
         <h1>YOUR cart is Empty</h1>
       ) : (
         <div>
-          <button onClick={() => dispatch(clearCart())} className="px-2 py-1 bg-black text-white rounded-lg">Clear Cart</button>
-          {/* <ItemCards itemsList={cartItems} /> */}
-          {cartItems.map((item)=>{
-            return  <CartItems items={item}  key={item?.card?.info?.id}/>
+          <button
+            onClick={() => dispatch(clearCart())}
+            className="px-2 py-1 bg-black text-white rounded-lg"
+          >
+            Clear Cart
+          </button>
+
+          {cartItems.map((item) => {
+            return <CartItems items={item} key={item?.card?.info?.id} />;
           })}
-         
         </div>
       )}
     </div>

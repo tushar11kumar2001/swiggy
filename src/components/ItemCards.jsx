@@ -1,15 +1,15 @@
 import { IMG_URL } from "../utils/constant";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { add, removeItems } from "../redux/cartSlice";
 import { useState } from "react";
 
 const ItemCards = ({ items }) => {
-  const [flag,setFlag] = useState(false);
+  const [flag, setFlag] = useState(false);
   const dispatch = useDispatch();
   const handleItems = (item) => {
-  setFlag(!flag);
-  if(flag) dispatch(removeItems(item));
-  else dispatch(add(item));
+    setFlag(!flag);
+    if (flag) dispatch(removeItems(item));
+    else dispatch(add(item));
   };
 
   return (
@@ -32,7 +32,12 @@ const ItemCards = ({ items }) => {
             />
           )}
           <h2 className="font-bold text-base ">{items?.card?.info?.name}</h2>
-          <p>₹ {items?.card?.info?.price?  items?.card?.info?.price/ 100:"200(default price)"}</p>
+          <p>
+            ₹{" "}
+            {items?.card?.info?.price
+              ? items?.card?.info?.price / 100
+              : "200(default price)"}
+          </p>
           <p className="text-gray-900 text-xs">
             {items?.card?.info?.description}
           </p>
@@ -46,14 +51,12 @@ const ItemCards = ({ items }) => {
             className="absolute left-2/4 bottom-0 translate-x-[-50%] px-5 py-1 border border-gray-500 rounded-lg text-green-500 text-center font-bold bg-white"
             onClick={() => handleItems(items)}
           >
-            {flag?"Remove":"ADD+"}
+            {flag ? "Remove" : "ADD+"}
           </button>
         </div>
       </div>
     </div>
   );
 };
-
-
 
 export default ItemCards;

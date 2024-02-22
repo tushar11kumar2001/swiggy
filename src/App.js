@@ -1,6 +1,5 @@
 import React from 'react';
 import CardContainer from "./components/CardContainer";
-// import cardData from "./utils/rest-list";
 
 
 

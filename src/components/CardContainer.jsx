@@ -7,32 +7,23 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/userContext";
 
 const CardContainer = () => {
-  // console.log("List " ,   useRestaurantList());
-  
   const [cardData2, setcardData2] = useState([]);
   const [searchText, setsearchText] = useState("");
   const [btnName, setbtnName] = useState("LOGIN");
   const [copyList, setcopyList] = useState([]);
-  const PromotedRestaurant = withPromotedLabel(Card); //higher order component..
+  const PromotedRestaurant = withPromotedLabel(Card);
   const { loggedInUser, setUserName } = useContext(UserContext);
-  // console.log("logindata" , loggedInUser);
 
-  useEffect(()=>{restaurantData()}, []);
+  useEffect(() => {
+    restaurantData();
+  }, []);
   const restaurantData = async () => {
-       const list = await restaurantList();
-      //  console.log("list",list);
-       if(list === "") return;
-       setcardData2(list[0].card.card.gridElements.infoWithStyle.restaurants);
-       setcopyList(list[0].card.card.gridElements.infoWithStyle.restaurants);
+    const list = await restaurantList();
+
+    if (list === "") return;
+    setcardData2(list[0].card.card.gridElements.infoWithStyle.restaurants);
+    setcopyList(list[0].card.card.gridElements.infoWithStyle.restaurants);
   };
-
-  //conditional rendering
-  //   if(cardData2.length===0){
-  //     return(
-  //  <Shimmar/>
-  //     )
-
-  //   }
 
   const onlineStatus = useOnlineStatus();
 
@@ -106,12 +97,13 @@ const CardContainer = () => {
           >
             {btnName}
           </button>
-          <h3 className="text-end mr-2">{btnName === "LOGOUT" ? loggedInUser : ""}</h3>
+          <h3 className="text-end mr-2">
+            {btnName === "LOGOUT" ? loggedInUser : ""}
+          </h3>
         </div>
       </div>
 
       <div className="flex justify-between flex-wrap w-4/5  mx-auto bg-[rgb(245,245,220)] p-6  ">
-    
         {copyList.map((resturant) => (
           <Link
             to={"/restaurants/" + resturant.info.id}
