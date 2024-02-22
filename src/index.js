@@ -16,7 +16,7 @@ import { Provider } from 'react-redux';
 import appStore from './redux/appStore';
 import reportWebVitals from './reportWebVitals';
 
-const Grocery = lazy(()=>import("./components/Grocery"));
+
 const About = lazy(()=>import("./components/About")); 
 const Cart = lazy(()=>import('./components/Cart'))
 
@@ -46,32 +46,29 @@ const appRouter = createBrowserRouter([
         {
                 path:"/",
                 element: <AppLayout />,
-                children: [
-                        {
-                                path:"/",
-                                element: <App />
-                        },
-                        {
-                                path:"/contact",
-                                element: <Contact></Contact>
-                        },
-                        {
-                                path:"/about",
-                                element: <Suspense fallback={<h1>loading</h1>}><About></About> </Suspense>
-                        },
-                        {
-                                path:"/grocery",
-                                element: <Suspense fallback={<h1>loading</h1>}><Grocery /></Suspense>
-                        },
-                        {
-                                path:"/cart",
-                                element: <Suspense fallback={<h1>loading</h1>}> <Cart/></Suspense> 
-                        },
-                        {
-                                path:"/restaurants/:restId",
-                                element: <RestaurantMenu />
-                        }
-                ],
+                // children: [
+                //         {
+                //                 path:"/",
+                //                 element: <App />
+                //         },
+                //         {
+                //                 path:"/contact",
+                //                 element: <Contact></Contact>
+                //         },
+                //         {
+                //                 path:"/about",
+                //                 element: <Suspense fallback={<h1>loading</h1>}><About></About> </Suspense>
+                //         },
+                  
+                //         {
+                //                 path:"/cart",
+                //                 element: <Suspense fallback={<h1>loading</h1>}> <Cart/></Suspense> 
+                //         },
+                //         {
+                //                 path:"/restaurants/:restId",
+                //                 element: <RestaurantMenu />
+                //         }
+                // ],
                 errorElement: <Error/>
         },
 
