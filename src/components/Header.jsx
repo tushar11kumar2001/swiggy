@@ -5,23 +5,24 @@ import { Logo } from "../utils/constant";
 import { useState } from "react";
 
 const Header = () => {
-  const[move,setMove] = useState("-240px");
-   const onlineStatus = useOnlineStatus();
+  const [move, setMove] = useState(false);
+  const onlineStatus = useOnlineStatus();
   const cartItems = useSelector((store) => store.cart.items);
-  function hidesideBar(){
-    setMove("-240px");
+  function hidesideBar() {
+    setMove(false);
   }
-  function showsideBar(){
-    setMove("0px");
+  function showsideBar() {
+    setMove(true);
   }
   return (
     <div className="flex h-20  justify-between  border-b-2 border-slate-300 items-center pl-32 pr-36 py-2 relative">
       <img
         className="h-5/6 hover:scale-110 cursor-pointer absolute  left-3  sm:relative"
         src={Logo}
+        alt=""
       />
 
-      <ul className="flex gap-5 text-gray-600 font-medium text-xl hidden sm:flex ">
+      <ul className=" gap-5 text-gray-600 font-medium text-xl hidden sm:flex ">
         <li className="cursor-pointer ">
           <h3 className="hover:text-orange-600">
             ONLINE STATUS {onlineStatus ? "❤" : "😝"}
@@ -57,12 +58,19 @@ const Header = () => {
         </li>
       </ul>
 
-      <i className="fa-solid fa-bars sm:hidden text-3xl text-gray-600 right-5 absolute" onClick={showsideBar}></i>
+      <i
+        className="fa-solid fa-bars sm:hidden text-3xl text-gray-600 right-5 absolute"
+        onClick={showsideBar}
+      ></i>
 
-      <ul className={"w-60 py-14 px-6 text-white font-medium text-xl absolute top-0  z-20 bg-black bg-opacity-80 sm:hidden right-["+move+"]"}>
+    {move &&   <ul
+        className={
+          "w-60 py-14 px-6 text-white font-medium text-xl absolute top-0  z-20 bg-black bg-opacity-80 sm:hidden right-0"
+        }
+      >
         <li className="cursor-pointer mb-4">
           <h3 className="hover:text-orange-600">
-            <i class="fa-solid fa-xmark" onClick={hidesideBar}></i>
+            <i className="fa-solid fa-xmark" onClick={hidesideBar}></i>
           </h3>
         </li>
         <li className="cursor-pointer mb-4">
@@ -98,7 +106,7 @@ const Header = () => {
             )}
           </h3>
         </li>
-      </ul>
+      </ul>}
     </div>
   );
 };
