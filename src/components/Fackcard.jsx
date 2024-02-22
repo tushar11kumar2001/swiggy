@@ -1,6 +1,6 @@
 const Shimmar = () => {
   return (
-    <div className="w-1/2 bg-slate-50 mx-auto p-10 text-lg">
+    <div className="w-1/2 bg-slate-50 mx-auto p-10 text-lg relative top-20">
       <h1>
         If you are able to see this page , it means yours browser have not CORS
         EXTENSION

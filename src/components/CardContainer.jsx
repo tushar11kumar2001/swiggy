@@ -34,8 +34,8 @@ const CardContainer = () => {
     <Shimmar />
   ) : (
     <div className="body relative top-20">
-      <div className="flex justify-between bg-[#e9c464] h-20 items-center ">
-        <div className="flex ml-2.5 w-60 h-10 border border-black rounded-[20px] bg-white">
+      <div className="flex justify-between bg-[#e9c464] h-20 items-center relative">
+        <div className="flex w-56 h-10 border border-black rounded-[20px] bg-white absolute left-3">
           <input
             type="text"
             className="h-full rounded-[20px] w-5/6 outline-none p-2"
@@ -61,23 +61,9 @@ const CardContainer = () => {
         </div>
 
         <div>
-          <label>User : </label>
-          <input
-            type="text"
-            id="user"
-            placeholder="username"
-            className="p-1 border border-black rounded-lg"
-            value={loggedInUser}
-            onChange={(e) => {
-              setUserName(e.target.value);
-            }}
-          />
-        </div>
-
-        <div>
           <button
             type="button"
-            className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
+            className="absolute right-3 top-5 focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2.5 dark:focus:ring-yellow-900"
             onClick={() => {
               const filterlist = cardData2.filter(
                 (rest) => rest.info.avgRatingString > 4.0
@@ -88,22 +74,11 @@ const CardContainer = () => {
             TOP RESTURANT
           </button>
 
-          <button
-            type="button"
-            className="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500  font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-yellow-900"
-            onClick={() => {
-              btnName === "LOGIN" ? setbtnName("LOGOUT") : setbtnName("LOGIN");
-            }}
-          >
-            {btnName}
-          </button>
-          <h3 className="text-end mr-2">
-            {btnName === "LOGOUT" ? loggedInUser : ""}
-          </h3>
+      
         </div>
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center w-1/2  mx-auto bg-white p-6  border-2 border-black sm:w-4/5">
+      <div className="flex gap-10 flex-wrap justify-center w-1/2  mx-auto bg-white p-6   sm:w-4/5">
         {copyList.map((resturant) => (
           <Link
             to={"/restaurants/" + resturant.info.id}

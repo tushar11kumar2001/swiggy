@@ -41,7 +41,7 @@ class Userbyclass extends React.Component {
     const { name, location, avatar_url } = this.state.userinfo;
 
     return (
-      <div className="userclass">
+      <div className="userclass relative top-20">
         <h2> {name.toUpperCase()}</h2>
         <h3>Location : {location}</h3>
         <img style={{ width: "160px", height: "150px" }} src={avatar_url} />

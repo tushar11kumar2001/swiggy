@@ -1,6 +1,6 @@
 const Contact = () => {
   return (
-    <div>
+    <div className="relative top-20">
       <h1 title="location" id="location">
         location
       </h1>
