@@ -9,7 +9,7 @@ import UserContext from "../utils/userContext";
 const CardContainer = () => {
   const [cardData2, setcardData2] = useState([]);
   const [searchText, setsearchText] = useState("");
-  const [btnName, setbtnName] = useState("LOGIN");
+
   const [copyList, setcopyList] = useState([]);
   const PromotedRestaurant = withPromotedLabel(Card);
   const { loggedInUser, setUserName } = useContext(UserContext);
@@ -35,7 +35,7 @@ const CardContainer = () => {
   ) : (
     <div className="body relative top-20">
       <div className="flex justify-between bg-[#e9c464] h-20 items-center relative">
-        <div className="flex w-52 h-10 border border-black rounded-[20px] bg-white absolute left-3">
+        <div className="flex w-48 h-10 border border-black rounded-[20px] bg-white absolute left-3">
           <input
             type="text"
             className="h-full rounded-[20px] w-5/6 outline-none p-2"
@@ -63,7 +63,7 @@ const CardContainer = () => {
         <div>
           <button
             type="button"
-            className="absolute right-3 top-5 focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:focus:ring-yellow-900"
+            className="absolute right-3 top-5 tracking-tighter focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-2 py-2.5 dark:focus:ring-yellow-900"
             onClick={() => {
               const filterlist = cardData2.filter(
                 (rest) => rest.info.avgRatingString > 4.0
@@ -85,9 +85,9 @@ const CardContainer = () => {
             key={resturant.info.id}
           >
             {resturant.info.avgRatingString > 4 ? (
-              <PromotedRestaurant restData={resturant} login={btnName} />
+              <PromotedRestaurant restData={resturant}  />
             ) : (
-              <Card restData={resturant} login={btnName} />
+              <Card restData={resturant}  />
             )}{" "}
           </Link>
         ))}

@@ -17,7 +17,7 @@ const RestaurantMenu = () => {
   );
 
   if (restInfo === null) return <Shimmar />;
-  const { name, cuisines, avgRatingString } =
+  const { name, cuisines, avgRatingString, costForTwo } =
     restaurantInfo[0].card?.card?.info;
 
   const menuDetails = restInfo?.data?.cards.filter((c) => c?.groupedCard);
@@ -37,6 +37,7 @@ const RestaurantMenu = () => {
         <div>
           <h1 className="text-center text-3xl font-bold">{name}</h1>
           <h2 className="">{cuisines.join(",")}</h2>
+          <h2 className="">₹ {costForTwo/100} cost for two</h2>
         </div>
         <h2 className="text-center text-lg flex justify-center items-center ">
           Rating : {avgRatingString}
