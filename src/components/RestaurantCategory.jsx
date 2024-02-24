@@ -16,8 +16,8 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
             onClick={handleclick}
           >
             {data.title} {"(" + data.itemCards.length + ")"}{" "}
-            {!showItems && <i class="fa-solid fa-caret-down"></i>}
-            {showItems && <i class="fa-solid fa-sort-up"></i>}
+            {!showItems && <i className="fa-solid fa-caret-down"></i>}
+            {showItems && <i className="fa-solid fa-sort-up"></i>}
           </h1>
         ) : (
           <h1 className="text-lg font-bold  cursor-pointer ">{data.title}</h1>

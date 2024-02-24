@@ -6,12 +6,10 @@ import CardContainer from "./components/CardContainer";
 
 
 
-const App = () => {
 
+const App = () => {
   return (
     <div>
-      
-      
       <CardContainer />
     </div>
   );

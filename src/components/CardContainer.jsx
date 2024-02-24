@@ -78,7 +78,7 @@ const CardContainer = () => {
         </div>
       </div>
 
-      <div className="flex gap-10 flex-wrap justify-center w-1/2  mx-auto bg-white p-6   sm:w-4/5">
+      <div className="grid grid-cols-1 gap-10 w-1/2 justify-items-center mx-auto bg-white p-6 sm:grid sm:grid-cols-2  sm:w-4/5 md:grid-cols-2 lg:grid-cols-3 ">
         {copyList.map((resturant) => (
           <Link
             to={"/restaurants/" + resturant.info.id}

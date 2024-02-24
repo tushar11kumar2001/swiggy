@@ -16,8 +16,8 @@ const NestedCategory = ({ nestedCategories }) => {
         >
           {nestedCategories?.title}{" "}
           {"(" + nestedCategories.itemCards.length + ")"}
-          {!show && <i class="fa-solid fa-caret-down"></i>}{" "}
-          {show && <i class="fa-solid fa-sort-up"></i>}
+          {!show && <i className="fa-solid fa-caret-down"></i>}{" "}
+          {show && <i className="fa-solid fa-sort-up"></i>}
         </h1>
 
         {show && <ItemCards itemsList={nestedCategories?.itemCards} />}
