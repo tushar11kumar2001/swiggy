@@ -11,16 +11,16 @@ const restaurantList = async ()=>{
        const json = await data.json();
      
 
-       
+      //  console.log(json);
        const list = json?.data?.cards.filter(
          (top) => top?.card?.card?.id === "restaurant_grid_listing" || 
                   top?.card?.card?.id === "top_brands_for_you"
        );
-       console.log(list);
+      //  console.log(list);
        return list;
     }
     catch(e){
-      console.log("e.message");
+      console.log(e.message);
       return "";
     }
        

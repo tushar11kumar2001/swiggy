@@ -7,7 +7,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
   };
 
   return (
-    <>
+    <div className="px-3">
       <div className="p-5 shadow-lg bg-slate-300 mt-5">
         {data?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" ? (
@@ -37,7 +37,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
         : data?.categories.map((cat) => {
             return <NestedCategory key={cat.title} nestedCategories={cat} />;
           })}
-    </>
+    </div>
   );
 };
 

@@ -15,15 +15,15 @@ const CardContainer = () => {
   const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
-    restaurantData();
-  }, []);
-  const restaurantData = async () => {
-    const list = await restaurantList();
+    restaurantList().then((data)=>{  
+    
+    setcardData2(data[0]?.card.card.gridElements.infoWithStyle.restaurants);
+    setcopyList(data[0]?.card.card.gridElements.infoWithStyle.restaurants);
+    }).catch((e)=>{
+     console.log(e);
+    })
 
-    if (list === "") return;
-    setcardData2(list[0].card.card.gridElements.infoWithStyle.restaurants);
-    setcopyList(list[0].card.card.gridElements.infoWithStyle.restaurants);
-  };
+  }, []);
 
   const onlineStatus = useOnlineStatus();
 

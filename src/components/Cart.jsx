@@ -7,7 +7,7 @@ const Cart = () => {
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
-    <div className="w-4/5  mx-auto bg-[rgb(245,245,220)] p-6 relative top-20">
+    <div className="w-full  mx-auto bg-[rgb(245,245,220)] p-6 relative top-20 sm:w-4/5">
       {cartItems.length == 0 ? (
         <h1>YOUR cart is Empty</h1>
       ) : (

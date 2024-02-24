@@ -10,7 +10,6 @@ const RestaurantMenu = () => {
 
   const [showIndex, setShowIndex] = useState(null);
 
-  const dummy = "dummy data";
 
   const restaurantInfo = restInfo?.data?.cards.filter(
     (c) => c?.card?.card?.info
@@ -32,7 +31,7 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className="w-4/5 bg-slate-50 mx-auto  relative top-20">
+    <div className="w-full bg-slate-50 mx-auto  relative top-20 sm:w-4/5">
       <div className="flex justify-between  items-baseline border border-orange-300 p-5 ">
         <div>
           <h1 className="text-center text-3xl font-bold">{name}</h1>
@@ -52,7 +51,6 @@ const RestaurantMenu = () => {
             data={category?.card?.card}
             showItems={idx === showIndex ? true : false}
             setShowIndex={() => setShowIndex(idx != showIndex ? idx : null)}
-            dummy={dummy}
           />
         );
       })}
