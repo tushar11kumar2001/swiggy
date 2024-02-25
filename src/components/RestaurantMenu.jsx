@@ -34,13 +34,13 @@ const RestaurantMenu = () => {
     <div className="w-full bg-slate-50 mx-auto  relative top-20 sm:w-4/5">
       <div className="flex justify-between  items-baseline border border-orange-300 p-5 ">
         <div>
-          <h1 className="text-center text-3xl font-bold">{name}</h1>
+          <h1 className="text-xl  font-bold sm-text-3xl">{name}</h1>
           <h2 className="">{cuisines.join(",")}</h2>
           <h2 className="">₹ {costForTwo/100} cost for two</h2>
         </div>
-        <h2 className="text-center text-lg flex justify-center items-center ">
+        <h2 className=" text-lg ">
           Rating : {avgRatingString}
-          <i className="fa-solid fa-star text-sm text-lime-700 "></i>
+          <i className="fa-solid fa-star text-sm text-lime-700"></i>
         </h2>
       </div>
       {categories.map((category, idx) => {
