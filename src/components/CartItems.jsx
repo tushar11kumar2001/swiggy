@@ -7,7 +7,7 @@ const CartItems = ({ items }) => {
     <div>
       <div className="flex flex-col justify-between p-2.5 m-2 border-b-2 border-gray-400 bg-slate-100 rounded ">
         <div className="flex justify-between ">
-          <div>
+          <div className="w-3/4">
             {items?.card?.info?.isVeg ? (
               <img className="w-4" src={vegMark} />
             ) : (
@@ -20,7 +20,7 @@ const CartItems = ({ items }) => {
                 ? items?.card?.info?.price / 100
                 : "200(default price)"}
             </p>
-            <p className="text-gray-900 text-xs">
+            <p className="text-gray-900 text-xs ">
               {items?.card?.info?.description}
             </p>
           </div>
@@ -31,10 +31,10 @@ const CartItems = ({ items }) => {
         </div>
 
         <div className=" mt-2 pr-7">
-          <h1 className="font-semibold text-end ">
+          <div className="font-semibold text-end ">
             Quantity{" "}
             <button
-              className="px-3 mr-2 text-2xl font-semibold text-white bg-red-600 text-center pb-1 rounded-lg"
+              className="px-3 mr-2 text-2xl font-semibold text-white bg-red-500 text-center pb-1 rounded-lg"
               onClick={(e) => {
                 setcount( count >= 2 ? count - 1 : 1);
               }}
@@ -43,14 +43,14 @@ const CartItems = ({ items }) => {
             </button>
             <span className="text-xl">{count}</span>
             <button 
-              className="px-2 ml-2 text-2xl font-semibold text-white bg-red-600 text-center pb-1 rounded-lg"
+              className="px-2 ml-2 text-2xl font-semibold text-white bg-red-500 text-center pb-1 rounded-lg"
               onClick={(e) => {
                 setcount(count + 1);
               }}
             >
               +
             </button>
-          </h1>
+          </div>
         </div>
       </div>
     </div>
