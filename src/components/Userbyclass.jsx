@@ -1,6 +1,7 @@
 //Class based component ...
 import React from "react";
 import UserContext from "../utils/userContext";
+import { Link } from "react-router-dom";
 class Userbyclass extends React.Component {
   constructor(props) {
     super(props);
@@ -41,15 +42,15 @@ class Userbyclass extends React.Component {
     const { name, location, avatar_url } = this.state.userinfo;
 
     return (
-      <div className="userclass relative top-20">
-        <h2> {name.toUpperCase()}</h2>
-        <h3>Location : {location}</h3>
-        <img style={{ width: "160px", height: "150px" }} src={avatar_url} />
-        <h2>
-          <UserContext.Consumer>
-            {(data) => data.loggedInUser}
-          </UserContext.Consumer>
-        </h2>
+      <div className="userclass relative top-10 flex flex-col items-center gap-4  h-screen">
+        <h2 className="text-lg font-semibold"> {name.toUpperCase()}</h2>
+        <h3 className="font-medium">Location : {location}</h3>
+        <img className="rounded-lg" style={{ width: "160px", height: "150px" }} src={avatar_url} />
+        <div className="flex gap-5 justify-center">
+          <Link to="https://www.instagram.com/tushar_11822/"><i className="fa-brands fa-square-instagram text-red-600 text-3xl"></i></Link>
+          <Link to="https://www.linkedin.com/in/tushar-kumar-b164a9256/"><i className="fa-brands fa-linkedin text-blue-600 text-3xl"></i></Link>
+          <Link to="https://github.com/tushar11kumar2001"><i class="fa-brands fa-square-github text-3xl"></i></Link>
+        </div>
       </div>
     );
   }
