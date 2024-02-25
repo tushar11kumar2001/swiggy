@@ -15,20 +15,20 @@ const CardContainer = () => {
   const { loggedInUser, setUserName } = useContext(UserContext);
 
   useEffect(() => {
-    restaurantList().then((data)=>{  
-    
-    setcardData2(data[0]?.card.card.gridElements.infoWithStyle.restaurants);
-    setcopyList(data[0]?.card.card.gridElements.infoWithStyle.restaurants);
-    }).catch((e)=>{
-     console.log(e);
-    })
-
+    restaurantList()
+      .then((data) => {
+        setcardData2(data[0]?.card.card.gridElements.infoWithStyle.restaurants);
+        setcopyList(data[0]?.card.card.gridElements.infoWithStyle.restaurants);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }, []);
 
   const onlineStatus = useOnlineStatus();
 
   if (onlineStatus === false)
-    return <h1>You're offline please check your internet connection</h1>;
+    return <h1 className="relative top-20 text-center pt-20 text-xl font-medium">You're offline please check your internet connection</h1>;
 
   return cardData2.length === 0 ? (
     <Shimmar />
@@ -73,8 +73,6 @@ const CardContainer = () => {
           >
             TOP RESTURANT
           </button>
-
-      
         </div>
       </div>
 
@@ -85,9 +83,9 @@ const CardContainer = () => {
             key={resturant.info.id}
           >
             {resturant.info.avgRatingString > 4 ? (
-              <PromotedRestaurant restData={resturant}  />
+              <PromotedRestaurant restData={resturant} />
             ) : (
-              <Card restData={resturant}  />
+              <Card restData={resturant} />
             )}{" "}
           </Link>
         ))}

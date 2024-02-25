@@ -19,7 +19,7 @@ const ItemCards = ({ items }) => {
           "flex justify-between p-2.5 m-2 border-b-2 border-gray-400 bg-slate-100 rounded-lg"
         }
       >
-        <div>
+        <div className="w-3/4 text-balance">
           {items?.card?.info?.isVeg ? (
             <img
               className="w-4"
